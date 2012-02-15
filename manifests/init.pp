@@ -12,7 +12,7 @@ class gconf {
       }
     }
     default: {
-      package { "gconf2":
+      package { "libgconf_dev":
         ensure    => present,
         provider  => "blastwave",
       }
