@@ -14,7 +14,7 @@ class gconf {
     default: {
       package { "libgconf_dev":
         ensure    => present,
-        provider  => "blastwave",
+        provider  => "pkgutil",
       }
     }
   }
