@@ -5,10 +5,14 @@
 
 class gconf {
 
-  case $kernel {
+  case $::kernel {
     linux: {
       package { "gconf2":
         ensure => present,
+        name   => $::osfamily ? {
+          'RedHat' => 'GConf2',
+          default  => 'gconf2',
+        }
       }
     }
     default: {
