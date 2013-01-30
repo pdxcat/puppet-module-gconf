@@ -14,6 +14,7 @@ define gconf::key($type, $value, $configsource) {
     command => "gconftool-2 --direct --config-source $configsource --type $type --set $name '$value'",
     # Command is only run if gconf is present, as is checked by the existence
     # of gconftool-2, and the key is incorrectly set.
-    onlyif  => "which gconftool-2 && test x\"`gconftool-2 --config-source $configsource --get $name --direct`\" != 'x$value'"
+    onlyif  => "which gconftool-2 && test x\"`gconftool-2 --get $name`\" != 'x$value'"
+         # assuming that config-source is set to xml:readonly:/etc/gconf/gconf.xml.mandatory in /etc/gconf/2/path
   }
 }
