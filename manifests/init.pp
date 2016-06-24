@@ -7,7 +7,7 @@ class gconf {
 
   case $::kernel {
     linux: {
-      package { "gconf2":
+      package { 'gconf2':
         ensure => present,
         name   => $::osfamily ? {
           'RedHat' => 'GConf2',
@@ -16,9 +16,9 @@ class gconf {
       }
     }
     default: {
-      package { "libgconf_dev":
-        ensure    => present,
-        provider  => "pkgutil",
+      package { 'libgconf_dev':
+        ensure   => present,
+        provider => 'pkgutil',
       }
     }
   }
